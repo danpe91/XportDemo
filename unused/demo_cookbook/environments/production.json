@@ -1,0 +1,20 @@
+{
+  "name": "production",
+  "description": "",
+  "cookbook_versions": {
+    "nginx": "<= 1.0.0"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+    "nginx": {
+      "listen": "80"
+    }
+  },
+  "override_attributes": {
+    "nginx": {
+      "listen": "80"
+    },
+    "my_attribute": "Now, this is some text for the procution environment set as an attribute"
+  }
+}

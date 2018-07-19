@@ -1,0 +1,22 @@
+Vagrant.configure("2") do |config|
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "centos/7"
+
+  # The url from where the 'config.vm.box' box will be fetched if it
+  # doesn't already exist on the user's system.
+  config.vm.box_url = "https://vagrantcloud.com/centos/boxes/7/versions/1804.02/providers/virtualbox.box"
+
+  config.vm.define :chef_workstation do |node|
+    node.vm.network "private_network", ip: "192.168.80.101"
+
+    node.vm.hostname = "workstation"
+
+    node.vm.provision :shell, path: "set_up.sh"
+
+    node.vm.provider :virtualbox do |vb|
+      vb.name = "Chef-Demo-Workstation"
+    end
+  end
+end

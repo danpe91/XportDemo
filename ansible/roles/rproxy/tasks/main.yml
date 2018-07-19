@@ -1,0 +1,26 @@
+---
+- name: starting rproxy role
+  debug: msg="Installing nginx..."
+
+- include: variables.yml
+
+- name: install epel-release software
+  yum:
+    name: https://download-i2.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: present
+
+- name: allow network proxying on selinux
+  command: setsebool -P httpd_can_network_connect 1
+
+- name: install nginx software
+  yum: name=nginx state=present
+  notify: enable nginx service
+
+# - name: copy config file
+#   copy:
+#     src: "{{ item.src }}"
+#     dest: "{{ item.dest }}"
+#   with_items:
+#     - { src: "load-balancing.conf", dest: "{{ nginx_conf_path }}" }
+#     - { src: "nginx.conf", dest: "{{ nginx_root_path }}" }
+#   notify: Reload nginx service

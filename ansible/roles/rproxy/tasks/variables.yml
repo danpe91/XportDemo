@@ -1,0 +1,4 @@
+---
+
+- name: include nginx variables
+  include_vars: "nginx.yml"

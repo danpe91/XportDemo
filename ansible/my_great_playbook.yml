@@ -1,0 +1,39 @@
+---
+# REMOVE
+- hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: Install git on all servers
+    yum: name=git state=present
+
+- hosts: all
+  become: yes
+  become_method: sudo
+
+  roles:
+    - create_user
+# REMOVE
+
+- hosts: rproxys
+  become: yes
+  become_method: sudo
+
+  roles:
+    - rproxy
+
+# REMOVE
+- hosts: dbservers
+  become: yes
+  become_method: sudo
+
+  roles:
+    - dbserver
+
+- hosts: lbservers
+  become: yes
+  become_method: sudo
+
+  roles:
+    - lbserver
+# REMOVE
