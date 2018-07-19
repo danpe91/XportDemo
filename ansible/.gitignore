@@ -1,1 +1,8 @@
 *.retry
+
+# General Vagrant files
+.vagrant/
+
+# Log files
+*.logs
+

@@ -16,11 +16,10 @@
   yum: name=nginx state=present
   notify: enable nginx service
 
-# - name: copy config file
-#   copy:
-#     src: "{{ item.src }}"
-#     dest: "{{ item.dest }}"
-#   with_items:
-#     - { src: "load-balancing.conf", dest: "{{ nginx_conf_path }}" }
-#     - { src: "nginx.conf", dest: "{{ nginx_root_path }}" }
-#   notify: Reload nginx service
+- name: copy config file
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: "nginx.conf", dest: "{{ nginx_root_path }}" }
+  notify: reload nginx service

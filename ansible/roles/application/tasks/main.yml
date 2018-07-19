@@ -1,0 +1,7 @@
+- include: repo.yml
+
+- name: clone repository
+  git:
+    repo: "{{ repo_uri }}"
+    dest: "{{ dest_path }}"
+    clone: yes
