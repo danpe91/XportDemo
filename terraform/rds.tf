@@ -42,7 +42,7 @@ resource "aws_db_instance" "rds_instance" {
   parameter_group_name = "${aws_db_parameter_group.parameter_group.id}"
   vpc_security_group_ids = ["${aws_security_group.sg_databases.id}"]
 
-  publicly_accessible = false
+  publicly_accessible = true
   apply_immediately = "${var.apply_immediately}"
   copy_tags_to_snapshot = "${var.copy_tags_to_snapshot}"
 

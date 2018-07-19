@@ -191,7 +191,7 @@ variable "copy_tags_to_snapshot" {
 
 variable "skip_final_snapshot" {
   description = "Determines whether skipping the creation of the final DB snapshot before the DB instance is deleted"
-  default = false
+  default = true
 }
 
 variable "retention" {

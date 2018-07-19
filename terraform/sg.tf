@@ -94,6 +94,13 @@ resource "aws_security_group" "sg_databases" {
     cidr_blocks = ["189.195.134.130/32"]
   }
 
+  ingress {
+    from_port = 5432
+    to_port = 5432
+    protocol = "tcp"
+    cidr_blocks = ["189.195.134.130/32"]
+  }
+
   egress {
     from_port = 0
     to_port = 0
