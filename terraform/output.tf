@@ -73,6 +73,11 @@ output "alb_listener_arn" {
   value       = "${aws_lb_listener.lb_listener.arn}"
 }
 
+output "alb_dns_name" {
+  description = "Returns the ARN of the HTTP listener attached in the ALB."
+  value       = "${aws_lb.application_load_balancer.dns_name }"
+}
+
 
 ## ALB Target Group
 output "alb_tg_be_id" {
