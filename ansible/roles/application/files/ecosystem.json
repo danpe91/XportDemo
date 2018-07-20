@@ -1,0 +1,8 @@
+{
+  "apps": [{
+    "name": "demo",
+    "script": "server.js",
+    "cwd": "/home/ec2-user/repo/application"
+    }
+  ]
+}

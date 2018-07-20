@@ -1,7 +1,23 @@
-- include: repo.yml
+- include_vars: repo.yml
 
 - name: clone repository
   git:
     repo: "{{ repo_uri }}"
     dest: "{{ dest_path }}"
     clone: yes
+    force: true
+
+- name: copy config file
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: "ecosystem.json", dest: "{{ app_pm2_path }}" }
+
+- name: install npm deps
+  npm:
+    path: /home/ec2-user/repo/application
+    state: present
+
+- name: startup the application
+  command: pm2 start {{ app_pm2_path }}/ecosystem.json

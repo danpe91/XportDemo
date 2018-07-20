@@ -13,7 +13,7 @@
 
   roles:
     - rproxy
-    
+
 - hosts: ec2
   become: yes
   become_method: sudo
@@ -21,3 +21,7 @@
     - vars/main.yml
   roles:
     - geerlingguy.nodejs
+
+- hosts: ec2
+  roles:
+    - application

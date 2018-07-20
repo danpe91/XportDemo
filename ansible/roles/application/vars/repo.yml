@@ -1,2 +1,3 @@
 repo_uri: https://github.com/danpe91/XportDemo.git
-dest_path: /home/ec2-user
+dest_path: /home/ec2-user/repo
+app_pm2_path: /home/ec2-user
