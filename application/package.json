@@ -7,10 +7,10 @@
   "dependencies": {
     "body-parser": "~1.5.2",
     "express": "~4.7.2",
-    "method-override": "~2.1.2",
-    "morgan": "~1.2.2",
+    "method-override": ">=2.3.10",
+    "morgan": ">=1.9.1",
     "pg": "7.3.0",
     "pg-hstore": "2.3.1",
-    "sequelize": "4.22.5"
+    "sequelize": ">=5.3.0"
   }
 }
